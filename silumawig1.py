@@ -1,5 +1,5 @@
 '''Compute the dimension 0 shifted bottleneck distance between two persistence 
-    diagrams X and Y where |X|=|Y|.
+    diagrams X and Y.
 '''
 
 import numpy as np
@@ -36,10 +36,8 @@ def silumawig1(X,Y):
             
     else: 
         m=np.argmin(X-Y)
-#        if  X[l]-Y[l]>X[m] and m<l:
         if Y[m] - X[m] > Y[l] and m<l: 
             return silumawig1(X[0:l],Y[0:l])
-#        elif Y[m]-X[m]<=Y[l] and m>l:
         elif X[l] - Y[l] > X[m] and m>l:
             return silumawig1(X[0:m],Y[0:m])
         else:
