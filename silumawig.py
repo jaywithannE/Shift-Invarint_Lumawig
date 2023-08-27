@@ -7,7 +7,7 @@ import numpy as np
 
 
 
-def silumawig1(X,Y):
+def silumawig(X,Y):
     X=-np.sort(-X)
     Y=-np.sort(-Y)
     d=0
@@ -37,9 +37,9 @@ def silumawig1(X,Y):
     else: 
         m=np.argmin(X-Y)
         if Y[m] - X[m] > Y[l] and m<l: 
-            return silumawig1(X[0:l],Y[0:l])
+            return silumawig(X[0:l],Y[0:l])
         elif X[l] - Y[l] > X[m] and m>l:
-            return silumawig1(X[0:m],Y[0:m])
+            return silumawig(X[0:m],Y[0:m])
         else:
             d=(X[l]-Y[l]-X[m]+Y[m])/2
             shift=(X[l]-Y[l]+X[m]-Y[m])/2
